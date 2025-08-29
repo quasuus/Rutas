@@ -3,51 +3,134 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Univan - Routes</title>
-  <link rel="stylesheet" href="style.css" />
-
+  <title>UniVan - Routes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <nav>
-    <div class="logo">UniVan</div>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li class="active">Routes</li>
-      <li>Reservations</li>
-      <li>Profile</li>
-    </ul>
-    <div class="avatar">👤</div>
-  </nav>
+<body class="bg-[#131316] text-[#f4f4f4] font-sans">
 
-  <main>
-    <h1>Routes</h1>
-    <input type="text" placeholder="Search..." class="search-input" />
-    <div id="map"></div>
-      <div class="map-static">
-        <img
-          src="sansalvador.JPG"
-          alt="Mapa de San Salvador"
-        />
-      </div>
-      
-      
+  <!-- Header superior -->
+  <header class="bg-[#1A122A] border-b border-[#2E254A] px-8 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="flex items-center gap-2 text-white text-xl font-bold">
+      <svg class="w-6 h-6 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M3 13.5V7.125C3 6.504 3.504 6 4.125 6H14.25a.75.75 0 01.53.22l4.5 4.5a.75.75 0 01.22.53v2.25a.75.75 0 01-.75.75H3z" />
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M3 13.5h18M6 17.25a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm12 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+      </svg>
+      UniVan
     </div>
 
-    <div class="routes-list">
-        <h2>Available Routes</h2>
-        <ul>
-          <li>
-            <a href="#route1"><span>📍</span> Route 1 - San Salvador to Santa Ana</a>
+    <!-- Links -->
+  <nav class="flex gap-6 text-lg text-gray-300">
+    <a href="#" class="hover:text-white transition">Home</a>
+    <a href="#" class="hover:text-white transition">Search Trips</a>
+    <a href="routes.html" class="text-white font-semibold">Routes</a>
+    <button class="relative">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+       stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-300 hover:text-white transition">
+    <path stroke-linecap="round" stroke-linejoin="round"
+          d="M14.5 17.5a2 2 0 11-5 0m9.5-5V11a7 7 0 10-14 0v1.5a2.5 2.5 0 01-1.5 2.25h17a2.5 2.5 0 01-1.5-2.25z" />
+  </svg>
+  <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+</button>
+ <a href="driverprofile.html" class="w-8 h-8 rounded-full bg-gray-500 hover:ring-2 ring-white transition duration-200"></a>
+ 
+  </nav>
+  </header>
+
+  <!-- Layout con sidebar -->
+  <div class="flex min-h-screen">
+    
+    <!-- Sidebar -->
+    <aside class="w-64 bg-[#1A122A] p-6 min-h-screen">
+      <nav class="space-y-4 text-gray-300 text-lg">
+        <a href="#" class="flex items-center gap-3 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3 9.75L12 4.5l9 5.25v9.75a1.5 1.5 0 01-1.5 1.5H4.5A1.5 1.5 0 013 19.5V9.75z" />
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9 22.5V12h6v10.5" />
+          </svg>
+          Dashboard
+        </a>
+
+        <a href="#" class="flex items-center gap-3 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 15a3 3 0 003 3h.75a2.25 2.25 0 004.5 0h3a2.25 2.25 0 004.5 0h.75a3 3 0 003-3v-1.5A2.25 2.25 0 0019.5 11h-1.379a.75.75 0 01-.53-.22l-2.12-2.122a.75.75 0 00-.53-.22H13.5V6.75A1.5 1.5 0 0012 5.25H5.25A1.5 1.5 0 003.75 6.75V15z" />
+          </svg>
+          Vehicles
+        </a>
+
+        <a href="#" class="flex items-center gap-3 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M17.25 6.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM4.5 20.25v-.75a6.75 6.75 0 0113.5 0v.75" />
+          </svg>
+          Students
+        </a>
+
+        <a href="#" class="flex items-center gap-3 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9.349 4.952a7.5 7.5 0 015.302 0m3.397 3.397a7.5 7.5 0 010 5.302m-3.397 3.397a7.5 7.5 0 01-5.302 0m-3.397-3.397a7.5 7.5 0 010-5.302M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M12 21.75a9.75 9.75 0 100-19.5 9.75 9.75 0 000 19.5z" />
+          </svg>
+          Support
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="flex-1 p-8">
+      <h1 class="text-3xl font-bold mb-6">Routes</h1>
+
+      <!-- Buscador -->
+      <input type="text" placeholder="Search..."
+        class="w-full bg-[#1e1e22] text-white p-3 rounded-lg placeholder-gray-400 mb-6 outline-none focus:ring-2 focus:ring-purple-500"/>
+
+<!-- Imagen del mapa -->
+<div class="w-full mb-8">
+  <img src="sansalvador.JPG" alt="Mapa de San Salvador" 
+       class="rounded-lg w-full h-80 object-cover shadow-md"/>
+</div>
+
+
+
+      <!-- Lista de rutas -->
+      <div class="routes-list">
+        <h2 class="text-2xl font-semibold mb-4">Available Routes</h2>
+        <ul class="divide-y divide-[#2a2a2e]">
+          <li class="py-3">
+            <a href="#route1" class="flex items-center gap-2 hover:text-purple-500 transition">
+              <span>📍</span> Route 1 - San Salvador to Santa Ana
+            </a>
           </li>
-          <li>
-            <a href="#route2"><span>📍</span> Route 2 - San Miguel to Usulután</a>
+          <li class="py-3">
+            <a href="#route2" class="flex items-center gap-2 hover:text-purple-500 transition">
+              <span>📍</span> Route 2 - San Miguel to Usulután
+            </a>
           </li>
-          <li>
-            <a href="#route3"><span>📍</span> Route 3 - Ahuachapán to Sonsonate</a>
+          <li class="py-3">
+            <a href="#route3" class="flex items-center gap-2 hover:text-purple-500 transition">
+              <span>📍</span> Route 3 - Ahuachapán to Sonsonate
+            </a>
           </li>
         </ul>
       </div>
-      
-  </main>
+    </main>
+  </div>
+
 </body>
 </html>
